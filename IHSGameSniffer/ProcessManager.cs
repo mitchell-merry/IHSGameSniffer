@@ -39,6 +39,12 @@ namespace IHSGameSniffer
                     return _process;
                 }
 
+                // if we got to this point, and we previously had a valid process, we should exit
+                if (_process != null)
+                {
+                    onExit?.Invoke(_process);
+                }
+
                 _process = null;
             }
             catch (Win32Exception e)

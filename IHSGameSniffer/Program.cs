@@ -20,7 +20,7 @@ namespace IHSGameSniffer
             while (true)
             {
                 Console.SetCursorPosition(0, 0);
-                Process proc = ProcessManager.GetProcess(null);
+                Process proc = ProcessManager.GetProcess(null, (_) => Console.Clear());
 
                 if (proc == null)
                 {
@@ -34,7 +34,6 @@ namespace IHSGameSniffer
                 // Update on-screen values
                 try
                 {
-
                     Console.SetCursorPosition(0, 2);
 
                     var velX = VelocityX.Deref<float>(proc);
